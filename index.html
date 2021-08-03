@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="./public/css/main.css">
+    </head>
+    <body>
+
+       
+
+        
+        <header>
+            <h1>Komputer Store</h1>
+        </header>
+
+        <main>
+            <!--- Bank section --->
+            <div>
+                <h2>Joe Banker</h2>
+                <ul>
+                    <li>
+                        <p>Balance</p> 
+                        <p id="bankBalance">0 kr.</p>
+                    </li>
+                    <li id="loanBalanceDiv">
+                        <p>Loan value</p>
+                        <p id="loanAmount"> 0 kr.</p>
+                    </li>
+                </ul>
+                <div class="buttonPanel">
+                    <button class="green" id="loanButton">Get a loan</button>
+                </div>
+            </div>
+
+            <!--- Work section --->
+            <div>
+                <h2>Work</h2>
+                <ul>
+                    <li>
+                        <p>Pay</p>
+                        <p id=payBalance>0 kr.</p>
+                    </li>
+                </ul>
+                <div class="buttonPanel">
+                    <button class="yellow" id="bankButton">Bank</button> 
+                    <button class="blue" id="workButton">Work</button>
+                </div>
+                <div class="buttonPanel">
+                    <button class="red" id="repayLoanButton">Repay Loan</button>
+                </div>
+            </div>
+
+            <!--- Laptops selection section --->
+            <div>
+                <h2>Laptops</h2>
+                
+                <div class="select">
+                    <select name="laptops" id="laptopsSelector"></select>
+                </div>
+
+                <h4>Features:</h4>
+                <ul id="featuresList"></ul>
+            </div>
+
+            <!--- Laptop section --->
+            <div class="laptopDiv">
+                <img id="laptopImage">
+                <div>
+                    <h2 id="laptopName">Laptops</h2>
+                    <p id="laptopDescription">Dis</p>
+                </div>
+                <div class="laptopPriceDiv">
+                    <h3 id="laptopPrice">300 kr</h3>
+                    <button class="lightblue" id="buyButton">BUY NOW</button>
+                </div>
+            </div>
+        </main>
+
+
+
+
+        <script src="./public/js/laptop.js"></script>
+        <script src="./public/js/bank.js"></script>
+        <script src="./public/js/work.js"></script>
+        <script src="./public/js/app.js"></script>
+    </body>
+</html>

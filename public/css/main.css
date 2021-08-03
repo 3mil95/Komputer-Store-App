@@ -1,0 +1,213 @@
+
+
+/* ---------- */
+/* Global CSS */
+/* ---------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+ul {
+    list-style-type: none;
+    flex: auto;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ---------- */
+/* header CSS */
+/* ---------- */
+
+header {
+    background: black;
+    color: white;
+    padding: 1em 11%;
+}
+
+header > h1 {
+    font-weight: 400;
+}
+
+
+/* ------------- */
+/* main body CSS */
+/* ------------- */
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 2em 10%;     
+}
+
+
+/* The small sections in the body */
+main > div {
+    background: #eee;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    padding: 2em;
+    padding-bottom: 1em;
+    border-radius: 1em;
+    box-shadow: 2px 2px 5px #ccc;
+}
+
+
+/* -------------- */
+/* laptop div CSS */
+/* -------------- */
+
+.laptopDiv {
+    grid-column-start: 1;
+    grid-column-end: 4;
+    display: grid;
+    grid-template-columns: 20% 50% 30%;
+}
+
+.laptopDiv div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 1em 3em;
+}
+
+.laptopPriceDiv {
+    justify-content: space-around !important;
+    align-items: center;
+    padding: 2.25em 3em !important;
+}
+
+.laptopDiv img {
+    width: 100%;
+}
+
+
+/* ---------- */
+/* Button CSS */
+/* ---------- */
+
+button {
+    border: none;
+    padding: 0.75em;
+    border-radius: 0.75em;
+    margin: 0.25em;
+    width: 100%;
+    transition: all 200ms;
+    box-shadow: 2px 2px 5px #777;
+    font-weight: bold;
+}
+
+.buttonPanel {
+    display: flex;
+}
+
+.lightblue {
+    background: #4CC9F1; 
+    border: #4CC9F1 3px solid;
+}
+
+.green {
+    background: #4BF1A1;
+    border: #4BF1A1 3px solid;
+}
+
+.yellow {
+    background: #EDEF4C;
+    border: #EDEF4C 3px solid;
+}
+
+.blue {
+    background: #4D70F0;
+    color: #fff;
+    border: #4D70F0 3px solid;
+}
+
+.red {
+    background: #e62e00;
+    color: #fff;
+    border: #e62e00 3px solid;
+}
+
+button:hover {
+    background: #fff; 
+    color: #000;
+}
+
+
+/* ---------- */
+/* select CSS */
+/* ---------- */
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #fff;
+    background-image: none;
+    flex: 1;
+    padding: 0 .75em;
+    color: #000;
+    cursor: pointer;
+}
+
+select:focus {
+    border: #000 4px solid;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+}
+
+/* Custom Select */
+.select {
+    position: relative;
+    display: flex;
+    width: 95%;
+    height: 2.5em;
+    line-height: 3;
+    background: #fff;
+    overflow: hidden;
+    border-radius: .4em;
+    border: #777 1px solid;
+    margin-bottom: 1em;
+}
+
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: -0.20em;
+    right: 0;
+    padding: 0 0.75em;
+    background: #fff;
+    color: #777;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+/* Transition */
+.select:hover::after {
+    color: #000;
+}
