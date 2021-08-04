@@ -41,6 +41,7 @@ header {
 
 header > h1 {
     font-weight: 400;
+    font-size: 1.75em;
 }
 
 
@@ -86,8 +87,12 @@ main > div {
     padding: 1em 3em;
 }
 
+.laptopPriceDiv h3 {
+    margin-bottom: 1.5em;
+}
+
 .laptopPriceDiv {
-    justify-content: space-around !important;
+    justify-content: center !important;
     align-items: center;
     padding: 2.25em 3em !important;
 }
@@ -154,14 +159,11 @@ button:hover {
 /* ---------- */
 
 select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
     appearance: none;
     outline: 0;
     box-shadow: none;
-    border: 0 !important;
-    background: #fff;
+    border: 0;
+    background: transparent;
     background-image: none;
     flex: 1;
     padding: 0 .75em;
@@ -170,13 +172,9 @@ select {
 }
 
 select:focus {
-    border: #000 4px solid;
+    border: #000 1px solid;
 }
 
-/* Remove IE arrow */
-select::-ms-expand {
-    display: none;
-}
 
 /* Custom Select */
 .select {
@@ -190,16 +188,17 @@ select::-ms-expand {
     border-radius: .4em;
     border: #777 1px solid;
     margin-bottom: 1em;
+    overflow: hidden;
 }
 
 /* Arrow */
 .select::after {
     content: '\25BC';
     position: absolute;
-    top: -0.20em;
+    top: -0.2em;
     right: 0;
     padding: 0 0.75em;
-    background: #fff;
+    background: transparent;
     color: #777;
     cursor: pointer;
     pointer-events: none;
