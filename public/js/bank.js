@@ -3,6 +3,7 @@
 function Bank() {
     this.balance = 0;
     this.loanValue = 0; 
+    this.hasBoughtComputerAfterLoan = true;
 
     // Gets the balance.
     this.getBalance = function() {
@@ -42,6 +43,9 @@ function Bank() {
 
     // Function take in amount to loan and if loan is valid the loan is taken.
     this.takeLoan = function(amount) {
+        if (!this.hasBoughtComputerAfterLoan) {
+            return { loanAccepted: false, message: "You have to buy a computer before you can take out another loan." };
+        }
         if (this.loanValue !== 0 ) {
             return { loanAccepted: false, message: "You cannot take out a loan because you already have one." };
         }
@@ -49,6 +53,7 @@ function Bank() {
             return { loanAccepted: false, message: "You can not take such a large loan." };
         }
 
+        this.hasBoughtComputerAfterLoan = false;
         this.loanValue = amount;
         this.balance += amount;
         return { loanAccepted: true };
@@ -59,6 +64,7 @@ function Bank() {
         if (laptop.price > this.balance) {
             return "You do not have enough money.";
         }
+        this.hasBoughtComputerAfterLoan = true;
         this.balance -= laptop.price;
         return `${laptop.title} is purchased`;
     }
