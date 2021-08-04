@@ -9,7 +9,7 @@ function Work() {
         return this.payBalance;
     }
 
-    // Tacks a function that takes  
+    // Transfers the current payBalance in to the given function.  
     this.transferPayBalance = function(to) {
         to(this.payBalance);
         this.payBalance = 0;
