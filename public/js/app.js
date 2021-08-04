@@ -29,20 +29,26 @@ let selectedLaptop;
 const baseURL = "https://noroff-komputer-store-api.herokuapp.com/";
 
 
-
+// Getting the laptop data. 
 fetch(`${baseURL}computers`)
     .then(response => response.json())
     .then(data =>  {
         laptops = data;
-        updateLaptopSelector() 
+        updateLaptopSelector();
+        updateLaptop(0);
     });
 
+
+
+// UI update functions.
+
+// Adds the laptops to the selector element as options. 
 const updateLaptopSelector = () => {
     console.log(laptops)
-    laptops.forEach((laptop) => addLaptopToSelector(laptop)); 
-    updateLaptop(0);
+    laptops.forEach((laptop) => addLaptopToSelector(laptop));  
 }
 
+// Adds a laptop to the selector element as options.
 const addLaptopToSelector = (laptop) => {
     const laptopElement = document.createElement("option");
     laptopElement.value = laptop.id;
@@ -50,9 +56,7 @@ const addLaptopToSelector = (laptop) => {
     laptopsSelectorElement.appendChild(laptopElement);
 }
 
-
-// 
-
+// Updates the features list for the selected laptop.
 const updateLaptopFeaturesList = () => {
     while (featuresListElement.firstChild) {
         featuresListElement.removeChild(featuresListElement.firstChild);
@@ -64,9 +68,7 @@ const updateLaptopFeaturesList = () => {
     })
 }
 
-
-
-
+// Updates the laptop section with the current laptop.
 const updateLaptop = (index) => {
     const laptop = laptops[index];
     selectedLaptop = laptop;
@@ -78,7 +80,7 @@ const updateLaptop = (index) => {
     updateLaptopFeaturesList();
 }
 
-
+// Updates the work section with the current state.
 const updateWork = () => {
     payBalanceElement.textContent = `${work.getPayBalance()} kr.`;
 
@@ -90,6 +92,7 @@ const updateWork = () => {
     repayLoanButtonElement.classList.remove("hidden");
 }
 
+// Updates the work section with the current state.
 const updateBank = () => {
     bankBalanceElement.textContent = `${bank.getBalance()} kr.`;
 
@@ -103,6 +106,9 @@ const updateBank = () => {
 }
 
 
+// event handle functions.
+
+// handles if img element errors and tests ".png" image.
 const handleImageError = () => {
     const altImageUR = baseURL + selectedLaptop.image.split(".")[0] + ".png";
     if (laptopImageElement.src !== altImageUR) {
@@ -156,16 +162,15 @@ const handleLaptopChange = (e) => {
     updateLaptop(e.target.selectedIndex);
 }
 
+
 // Add event listeners, 
 
 laptopsSelectorElement.addEventListener("change", handleLaptopChange);
-
 repayLoanButtonElement.addEventListener("click", handleRepayLoanButtonClick);
 buyButtonElement.addEventListener("click", handleBuyButtonClick);
 loanButtonElement.addEventListener("click", handleLoanButtonClick);
 bankButtonElement.addEventListener("click", handleBankButtonClick);
 workButtonElement.addEventListener("click", handleWorkButtonClick);
-
 laptopImageElement.addEventListener("error", handleImageError)
 
 // Update to starting state. 

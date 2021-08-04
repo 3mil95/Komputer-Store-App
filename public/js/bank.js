@@ -4,36 +4,41 @@ function Bank() {
     this.balance = 0;
     this.loanValue = 0; 
 
+    // Gets the balance.
     this.getBalance = () => {
         return this.balance;
     }
 
+    // Gets the loanValue.
     this.getLoanValue = () => {
         return this.loanValue;
     }
 
-    this.addToBalance = (value) => {
+    // Function take in amount and add it to the balance, if a loan is taken 10% of the amount is transferred to the outstanding Loan amount.
+    this.addToBalance = (amount) => {
         if (this.loanValue > 0) {
-            this.loanValue -= value * 0.1;
+            this.loanValue -= amount * 0.1;
             if (this.loanValue < 0) {
-                value = value * 0.9 - this.loanValue;
+                amount = amount * 0.9 - this.loanValue;
                 this.loanValue = 0;
             } else {
-                value *= 0.9;
+                amount *= 0.9;
             }            
         } 
 
-        this.balance += value;
+        this.balance += amount;
     }
 
-    this.payBackLoan = (value) => {
-        this.loanValue -= value;
+    // Function take in amount to pay back to the loan, if more then the loan the rest of amount is added to balance.
+    this.payBackLoan = (amount) => {
+        this.loanValue -= amount;
         if (this.loanValue < 0) {
             this.balance -= this.loanValue
             this.loanValue = 0;
         }
     }
 
+    // Function take in amount to loan and if loan is valid the loan is taken.
     this.takeLoan = (amount) => {
         if (this.loanValue !== 0 ) {
             return { loanAccepted: false, message: "You cannot take out a loan because you already have one." };
@@ -47,6 +52,7 @@ function Bank() {
         return { loanAccepted: true };
     }
 
+    // Function takes in a laptop and tries to buy it. returns a success message or a fail message.
     this.buyLaptop = (laptop) => {
         if (laptop.price > this.balance) {
             return "You do not have enough money.";
