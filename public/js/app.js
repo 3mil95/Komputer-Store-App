@@ -44,7 +44,6 @@ fetch(`${baseURL}computers`)
 
 // Adds the laptops to the selector element as options. 
 const updateLaptopSelector = () => {
-    console.log(laptops)
     laptops.forEach((laptop) => addLaptopToSelector(laptop));  
 }
 
